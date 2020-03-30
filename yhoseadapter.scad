@@ -8,15 +8,20 @@
 
 // Code is based on the CC0 example CSG-modules.scad by Marius Kintel.
 
+// The last value will overwrite prior values.
+// Comment out lines with PREVIEW before making a render.
+
+// Helper shapes that help understand the concepts that make the shape.
 // Change this to false to remove the helper geometry
 // TODO: Make debug conditional for preview.
-debug = true;
+debug = false;  // RENDER
+debug = true;  // PREVIEW
 
 // Global resolution
 // TODO: Make the resolution conditional for preview and render.
-// $fs = 0.001;  // Don't generate smaller facets than 0.1 mm // RENDER
+$fs = 0.01;  // Don't generate smaller facets than 0.1 mm // RENDER
 $fs = 0.1;  // Don't generate smaller facets than 0.1 mm // PREVIEW
-// $fa = 1;    // Don't generate larger angles than 1 degrees // RENDER
+$fa = 1;    // Don't generate larger angles than 1 degrees // RENDER
 $fa = 5;    // Don't generate larger angles than 5 degrees // PREVIEW
 
 // Variables
@@ -28,6 +33,7 @@ TRANSIT=30;  // Height of transition between the intersecion point and the botto
 SPLITS=2;  // 2 or 4
 SPACE=140;  // Space for debugging
 SCALE=EXTRAD/INTRAD;  // Controls the thickness
+
 
 // Main geometry
 difference() {
@@ -56,6 +62,7 @@ module intersector() {
     // 4 Way
     if (SPLITS==4) {
         color("Red") translate([0,0,10]) rotate([0,45,90]) cube([55,30,55], center=true);
+    // TODO: 4 way should allow for longer stems as the design gets crowded.
     }
 }
 

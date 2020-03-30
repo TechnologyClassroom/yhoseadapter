@@ -1,0 +1,5 @@
+# Old versions
+old/
+
+# vim
+*.swp
