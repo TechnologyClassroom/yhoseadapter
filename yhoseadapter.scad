@@ -29,10 +29,10 @@ EXTRAD=11;  // Exterior Radius
 INTRAD=9.5;  // Interior Radius - Cannot be more than EXTRAD
 // HEIGHT=25;  // Height of hole segments
 CONNECT=20;  // Height of connection segment
-TRANSIT=30;  // Height of transition between the intersecion point and the bottom of the Y's connection
+TRANSIT=8;  // Height of transition between the intersecion point and the bottom of the Y's connection
 SPLITS=2;  // 2 or 4
-SPACE=140;  // Space for debugging
 SCALE=EXTRAD/INTRAD;  // Controls the thickness
+SPACE=(CONNECT+TRANSIT)*3.5;  // Space for debugging
 
 
 // Main geometry
@@ -57,11 +57,18 @@ module body() {
 
 module intersector() {
     // TODO make the measurements in this section relational to the variables.
-    color("Red") translate([0,0,-20]) cube([30,30,59], center=true);
-    color("Red") translate([0,0,10]) rotate([0,45,0]) cube([55,30,55], center=true);
+    BOXL=40;
+    if (SPLITS==4) {
+        BOXL=50;
+    }
+    BOXW=EXTRAD*2.5;
+    color("Red") translate([0,0,-10]) cube([BOXW,BOXW,36-0.01], center=true);
+    color("Red") translate([10,0,10]) rotate([0,45,0]) cube([BOXW,BOXW,BOXL], center=true);
+    color("Red") translate([-10,0,10]) rotate([0,-45,0]) cube([BOXW,BOXW,BOXL], center=true);
     // 4 Way
     if (SPLITS==4) {
-        color("Red") translate([0,0,10]) rotate([0,45,90]) cube([55,30,55], center=true);
+        color("Red") translate([0,10,10]) rotate([0,45,90]) cube([BOXW,BOXW,BOXL], center=true);
+        color("Red") translate([0,-10,10]) rotate([0,-45,90]) cube([BOXW,BOXW,BOXL], center=true);
     // TODO: 4 way should allow for longer stems as the design gets crowded.
     }
 }
