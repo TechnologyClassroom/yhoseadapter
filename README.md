@@ -11,7 +11,7 @@ The goal of this project is to create an adapter than can be used to split the o
 ![Screenshot](https://user-images.githubusercontent.com/14501791/77833250-d93ac680-7133-11ea-9c4a-84214465c900.jpg?raw=true "yhoseadapter RC1 initial test print")
 
 ![Screenshot](https://user-images.githubusercontent.com/14501791/77833254-dc35b700-7133-11ea-8da9-34324f262a99.jpg?raw=true "yhoseadapter RC1 initial fitting test")
-Picture credit: Copyright © Robert Comeau 2020. [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+yhoseadapter RC1 Picture credit: Copyright © Robert Comeau 2020. [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 
 Design file was made using [OpenSCAD](http://www.openscad.org/) to fit standard size 22mm oxygen hoses.
 
